@@ -1,0 +1,30 @@
+:root {
+  /* Primary Colors */
+  --primary-purple: #9b59b6;
+  --primary-green: #2ecc71;
+  
+  /* Purple Shades */
+  --purple-dark: #663399;
+  --purple-light: #bb77dd;
+  --purple-glow: #d8b2ff;
+  
+  /* Green Shades */
+  --green-dark: #27ae60;
+  --green-light: #52e584;
+  --green-glow: #7dff9f;
+  
+  /* Background Colors */
+  --bg-primary: #1a0f1f;
+  --bg-secondary: #241a2e;
+  --bg-accent: #0f1a0f;
+  
+  /* Text Colors */
+  --text-primary: #f0f0f0;
+  --text-secondary: #d0d0d0;
+  
+  /* Shadows and Effects */
+  --shadow-purple: rgba(155, 89, 182, 0.5);
+  --shadow-green: rgba(46, 204, 113, 0.5);
+  --glow-purple: 0 0 20px rgba(155, 89, 182, 0.6);
+  --glow-green: 0 0 20px rgba(46, 204, 113, 0.6);
+}

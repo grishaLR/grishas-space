@@ -1,0 +1,296 @@
+.landing {
+  max-width: 1000px;
+  margin: 0 auto;
+  color: #f0f0f0;
+  font-family: 'Arial', sans-serif;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.title {
+  font-size: 4rem;
+  font-weight: bold;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  position: relative;
+}
+
+.glitch {
+  position: relative;
+  color: var(--primary-purple);
+  text-shadow: 
+    2px 2px 0 var(--primary-green),
+    -2px -2px 0 var(--purple-light);
+  animation: glitch 2s infinite;
+}
+
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.glitch::before {
+  animation: glitchTop 1s infinite;
+  color: var(--primary-green);
+  z-index: -1;
+}
+
+.glitch::after {
+  animation: glitchBottom 1.5s infinite;
+  color: var(--green-light);
+  z-index: -2;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: var(--primary-green);
+  margin-top: 10px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+.profileCard {
+  background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--purple-dark) 50%, var(--bg-accent) 100%);
+  border: 3px solid var(--primary-purple);
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: 
+    var(--glow-purple),
+    inset 0 0 20px var(--shadow-green);
+  margin-bottom: 30px;
+  position: relative;
+  overflow: hidden;
+}
+
+.profileCard::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, var(--primary-purple), var(--primary-green), var(--purple-light), var(--green-light), var(--primary-purple));
+  background-size: 400% 400%;
+  animation: borderGlow 3s ease infinite;
+  z-index: -1;
+  border-radius: 15px;
+}
+
+.profileHeader {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  margin-bottom: 40px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid rgba(0, 102, 255, 0.3);
+}
+
+.profilePic {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 4px solid var(--primary-green);
+  overflow: hidden;
+  box-shadow: var(--glow-green);
+  animation: float 3s ease-in-out infinite;
+}
+
+.profilePic img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profileInfo h2 {
+  color: var(--primary-purple);
+  font-size: 2rem;
+  margin: 0 0 10px 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.status,
+.mood {
+  margin: 5px 0;
+  font-size: 1.1rem;
+  color: var(--green-light);
+}
+
+.sections {
+  display: grid;
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.section {
+  background: rgba(0, 0, 0, 0.3);
+  border: 2px solid var(--shadow-green);
+  border-radius: 10px;
+  padding: 20px;
+  transition: all 0.3s ease;
+}
+
+.section:hover {
+  border-color: var(--primary-green);
+  box-shadow: var(--glow-green);
+  transform: translateY(-2px);
+}
+
+.section h3 {
+  color: var(--primary-green);
+  font-size: 1.5rem;
+  margin: 0 0 15px 0;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+.sectionContent {
+  color: #f0f0f0;
+  line-height: 1.6;
+}
+
+.friendsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+}
+
+.friend {
+  background: linear-gradient(45deg, var(--purple-dark), var(--primary-purple));
+  padding: 15px 10px;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: bold;
+  border: 2px solid var(--shadow-green);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.friend:hover {
+  transform: scale(1.05);
+  border-color: var(--primary-green);
+  box-shadow: var(--glow-green);
+}
+
+.footer {
+  text-align: center;
+  margin-top: 40px;
+  padding: 20px;
+  border-top: 2px solid var(--shadow-purple);
+}
+
+.badges {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 15px;
+  flex-wrap: wrap;
+}
+
+.badge {
+  background: linear-gradient(45deg, var(--primary-green), var(--green-dark));
+  padding: 8px 15px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  border: 2px solid var(--primary-purple);
+  box-shadow: var(--glow-purple);
+}
+
+@keyframes glitch {
+  0%, 100% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(-2px, 2px);
+  }
+  40% {
+    transform: translate(-2px, -2px);
+  }
+  60% {
+    transform: translate(2px, 2px);
+  }
+  80% {
+    transform: translate(2px, -2px);
+  }
+}
+
+@keyframes glitchTop {
+  0%, 100% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(-2px, -2px);
+  }
+  40% {
+    transform: translate(-2px, 2px);
+  }
+  60% {
+    transform: translate(2px, -2px);
+  }
+  80% {
+    transform: translate(2px, 2px);
+  }
+}
+
+@keyframes glitchBottom {
+  0%, 100% {
+    transform: translate(0);
+  }
+  25% {
+    transform: translate(2px, 0);
+  }
+  50% {
+    transform: translate(-2px, 0);
+  }
+  75% {
+    transform: translate(2px, 0);
+  }
+}
+
+@keyframes borderGlow {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+  }
+  
+  .profileHeader {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .friendsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .badges {
+    flex-direction: column;
+    align-items: center;
+  }
+}

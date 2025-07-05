@@ -1,0 +1,102 @@
+.profileBox {
+  background: rgba(0, 0, 0, 0.3);
+  border: 2px solid rgba(255, 0, 102, 0.3);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.animated:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 20px rgba(255, 0, 102, 0.3);
+}
+
+.header {
+  background: linear-gradient(45deg, rgba(0, 102, 255, 0.2), rgba(255, 0, 102, 0.2));
+  padding: 15px 20px;
+  border-bottom: 2px solid rgba(255, 0, 102, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.title {
+  margin: 0;
+  color: #ff0066;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.decoration {
+  position: absolute;
+  top: 0;
+  right: -50px;
+  width: 100px;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transform: skewX(-20deg);
+  animation: slideDecoration 3s linear infinite;
+}
+
+.content {
+  padding: 20px;
+  color: #f0f0f0;
+}
+
+/* Variants */
+.default {
+  border-color: rgba(255, 0, 102, 0.3);
+}
+
+.neon {
+  border-color: #00ffff;
+  box-shadow: 
+    0 0 10px rgba(0, 255, 255, 0.3),
+    inset 0 0 10px rgba(0, 255, 255, 0.1);
+}
+
+.neon .title {
+  color: #00ffff;
+  text-shadow: 
+    0 0 10px rgba(0, 255, 255, 0.8),
+    0 0 20px rgba(0, 255, 255, 0.6);
+}
+
+.gradient {
+  border-image: linear-gradient(45deg, #ff0066, #0066ff, #00ffff, #ff0066) 1;
+  position: relative;
+}
+
+.gradient::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, #ff0066, #0066ff, #00ffff, #ff0066);
+  background-size: 400% 400%;
+  animation: borderGlow 3s ease infinite;
+  z-index: -1;
+  border-radius: 10px;
+  opacity: 0.5;
+}
+
+@keyframes slideDecoration {
+  0% {
+    right: -50px;
+  }
+  100% {
+    right: 100%;
+  }
+}
+
+@keyframes borderGlow {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}

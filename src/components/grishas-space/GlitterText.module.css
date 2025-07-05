@@ -1,0 +1,100 @@
+.glitterText {
+  position: relative;
+  display: inline-block;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+}
+
+.sparkle1,
+.sparkle2,
+.sparkle3 {
+  position: absolute;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.9) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.sparkle1 {
+  width: 4px;
+  height: 4px;
+  top: 20%;
+  left: 10%;
+  animation: sparkle1 2s linear infinite;
+}
+
+.sparkle2 {
+  width: 6px;
+  height: 6px;
+  top: 60%;
+  right: 20%;
+  animation: sparkle2 2.5s linear infinite;
+}
+
+.sparkle3 {
+  width: 5px;
+  height: 5px;
+  bottom: 20%;
+  left: 40%;
+  animation: sparkle3 1.8s linear infinite;
+}
+
+/* Intensity levels */
+.low .sparkle1,
+.low .sparkle2,
+.low .sparkle3 {
+  opacity: 0.5;
+}
+
+.medium .sparkle1,
+.medium .sparkle2,
+.medium .sparkle3 {
+  opacity: 0.8;
+}
+
+.high .sparkle1,
+.high .sparkle2,
+.high .sparkle3 {
+  opacity: 1;
+  filter: blur(0.5px);
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.8);
+}
+
+@keyframes sparkle1 {
+  0%, 100% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1) rotate(180deg);
+  }
+}
+
+@keyframes sparkle2 {
+  0%, 100% {
+    opacity: 0;
+    transform: scale(0) translateX(0);
+  }
+  25% {
+    opacity: 1;
+    transform: scale(1.2) translateX(-5px);
+  }
+  75% {
+    opacity: 1;
+    transform: scale(0.8) translateX(5px);
+  }
+}
+
+@keyframes sparkle3 {
+  0%, 100% {
+    opacity: 0;
+    transform: scale(0) rotate(0deg);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1) rotate(360deg);
+  }
+}
