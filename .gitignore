@@ -137,3 +137,23 @@ dist
 # Vite logs files
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+
+# Creative process and internal documentation
+CLAUDE.md
+claude.md
+TODO.md
+todo.md
+NOTES.md
+notes.md
+IDEAS.md
+ideas.md
+PLANNING.md
+planning.md
+DESIGN-NOTES.md
+design-notes.md
+*-notes.md
+*-ideas.md
+*-planning.md
+.claude/
+.ideas/
+.planning/
