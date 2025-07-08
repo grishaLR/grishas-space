@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import { useFrame } from "@react-three/fiber";
-import { Mesh, BoxGeometry, MeshStandardMaterial } from "three";
+import { Mesh, MeshStandardMaterial, Group } from "three";
 import { AudioData } from "@hooks/useAudioAnalyzer";
 
 interface AudioVisualizer3DProps {
@@ -12,7 +12,7 @@ export const AudioVisualizer3D: React.FC<AudioVisualizer3DProps> = ({
   audioData,
   isPlaying,
 }) => {
-  const groupRef = useRef<THREE.Group>(null);
+  const groupRef = useRef<Group>(null);
   const barsRef = useRef<Mesh[]>([]);
   const centerSphereRef = useRef<Mesh>(null);
 

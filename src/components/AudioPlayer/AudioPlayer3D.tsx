@@ -13,9 +13,7 @@ import {
   authorizeAppleMusic,
   isAuthorized,
   searchAppleMusic,
-  playSong,
   getPlaybackState,
-  playPause,
 } from "@/services/appleMusic";
 import styles from "./AudioPlayer3D.module.css";
 
@@ -40,12 +38,7 @@ export const AudioPlayer3D: FC<AudioPlayer3DProps> = ({
   recentTracks = [],
   onTrackSelect,
 }) => {
-  const {
-    audioRef,
-    audioData,
-    isPlaying: audioIsPlaying,
-    togglePlay,
-  } = useAudioAnalyzer();
+  const { audioRef, audioData, isPlaying: audioIsPlaying } = useAudioAnalyzer();
 
   const [musicKitInitialized, setMusicKitInitialized] = useState(false);
   const [musicKitAuthorized, setMusicKitAuthorized] = useState(false);
@@ -58,7 +51,7 @@ export const AudioPlayer3D: FC<AudioPlayer3DProps> = ({
   // Audio analysis for Apple Music
   const audioContextRef = useRef<AudioContext | null>(null);
   const analyzerRef = useRef<AnalyserNode | null>(null);
-  const animationRef = useRef<number>();
+  const animationRef = useRef<number | undefined>(undefined);
   const isProcessingRef = useRef(false);
 
   // Default audio data to prevent null errors
@@ -216,10 +209,10 @@ export const AudioPlayer3D: FC<AudioPlayer3DProps> = ({
         console.error("❌ Error toggling MusicKit playback:", error);
         // If playback fails, try to refresh and restart
         if (
-          error.message?.includes("network") ||
-          error.message?.includes("blob") ||
-          error.message?.includes("AbortError") ||
-          error.message?.includes("NotAllowedError")
+          (error as Error).message?.includes("network") ||
+          (error as Error).message?.includes("blob") ||
+          (error as Error).message?.includes("AbortError") ||
+          (error as Error).message?.includes("NotAllowedError")
         ) {
           console.log(
             "🔄 Blob/network error detected, attempting to restart track..."
@@ -546,10 +539,10 @@ export const AudioPlayer3D: FC<AudioPlayer3DProps> = ({
 
           // Check if it's a token/authorization issue
           if (
-            error.message?.includes("unauthorized") ||
-            error.message?.includes("token") ||
-            error.message?.includes("403") ||
-            error.message?.includes("401")
+            (error as Error).message?.includes("unauthorized") ||
+            (error as Error).message?.includes("token") ||
+            (error as Error).message?.includes("403") ||
+            (error as Error).message?.includes("401")
           ) {
             console.log("🔐 Authorization issue detected, re-authorizing...");
             setMusicKitAuthorized(false);
